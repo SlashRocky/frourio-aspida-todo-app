@@ -1,4 +1,7 @@
-export default {
+import { Configuration } from '@nuxt/types'
+import frourioConfig from './server/frourio.config'
+
+const config: Configuration = {
   mode: 'spa',
   /*
    ** Headers of the page
@@ -27,7 +30,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ['~/plugins/api'],
   /*
    ** Nuxt.js dev-modules
    */
@@ -49,7 +52,12 @@ export default {
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  axios: {
+    baseURL:
+      process.env.NODE_ENV === 'production'
+        ? frourioConfig.basePath
+        : `http://localhost:${frourioConfig.port}${frourioConfig.basePath}`
+  },
   /*
    ** Build configuration
    */
@@ -60,3 +68,5 @@ export default {
     // extend(config, ctx) {}
   }
 }
+
+export default config

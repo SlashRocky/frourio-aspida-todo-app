@@ -8,6 +8,7 @@
       <h2 class="subtitle">
         Nuxt.ts + frourio project
       </h2>
+      <div>{{ message }}</div>
       <div class="links">
         <a href="https://nuxtjs.org/" target="_blank" class="button--green">
           Documentation
@@ -31,6 +32,14 @@ import Logo from '~/components/Logo.vue'
 export default Vue.extend({
   components: {
     Logo
+  },
+  async fetch() {
+    this.message = await this.$api.$get()
+  },
+  data() {
+    return {
+      message: ''
+    }
   }
 })
 </script>
