@@ -40,7 +40,7 @@
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/dotenv": "^1.4.0",
     "frourio": "^0.1.2",
-    "nuxt": "2.12.2",
+    "nuxt": "3.4.3",
     "pm2": "^4.4.0"
   },
   "devDependencies": {
